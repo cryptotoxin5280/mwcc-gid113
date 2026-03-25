@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Demo</title>
+</head>
+<body>
+    <p id="date"></p>
+    <script>
+        currentDate = new Date();
+        document.getElementById("date").innerHTML = "Today is " + currentDate.toDateString();
+    </script>
+
+    <p id="demo">This is a demonstration!</p>
+    <script>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";
+    </script>
+
+    <button id="btnRed">Change to Red</button>
+    <script>
+        const btnRed = document.getElementById("btnRed");
+        btnRed.onclick = () => {
+            document.getElementById("demo").style.color = "red";
+        }
+    </script>
+
+    <button id="btnBgColor">Change Background</button>
+    <script>
+        const btnBgColor = document.getElementById("btnBgColor");
+        btnBgColor.onclick = () => {
+            document.getElementById("demo").style.backgroundColor = "yellow";
+        }
+    </script>
+
+    <button>Click Me!</button>
+    <script src="app.js"></script>
+</body>
+</html>
