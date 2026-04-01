@@ -8,7 +8,7 @@
 <body>
     <p id="date"></p>
     <script>
-        currentDate = new Date();
+        const currentDate = new Date();
         document.getElementById("date").innerHTML = "Today is " + currentDate.toDateString();
     </script>
 
@@ -19,7 +19,7 @@
 
     <button id="btnRed">Change to Red</button>
     <script>
-        const btnRed = document.getElementById("btnRed");
+        btnRed = document.getElementById("btnRed");
         btnRed.onclick = () => {
             document.getElementById("demo").style.color = "red";
         }
@@ -33,7 +33,13 @@
         }
     </script>
 
-    <button>Click Me!</button>
-    <script src="app.js"></script>
+    <button id="btnClickMe">Click Me!</button>
+    <script>
+        const btnClickMe = document.getElementById('btnClickMe');
+        btnClickMe.onclick = () => {
+            alert('You clicked me!');
+        }
+    </script>
+
 </body>
 </html>

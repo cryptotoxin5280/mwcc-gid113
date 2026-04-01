@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Demo</title>
+</head>
+<body>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <!-- /jQuery -->
+
+    <p id="date"></p>
+    <!-- <script>
+        const currentDate = new Date();
+        document.getElementById("date").innerHTML = "Today is " + currentDate.toDateString();
+    </script> -->
+    <script>
+        const currentDate = new Date();
+        $("#date").text("Today is " + currentDate.toDateString());
+    </script>
+
+    <p id="demo">This is a demonstration!</p>
+    <!-- <script>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";
+    </script> -->
+    <script>
+        $("#demo").text("Hello JavaScript!");
+    </script>
+
+    <button id="btnRed">Change to Red</button>
+    <!-- <script>
+        btnRed = document.getElementById("btnRed");
+        btnRed.onclick = () => {
+            document.getElementById("demo").style.color = "red";
+        }
+    </script> -->
+    <script>
+        $("#btnRed").click(() => {
+            $("#demo").css("color", "red");
+        })
+    </script>
+
+    <button id="btnBgColor">Change Background</button>
+    <!-- <script>
+        const btnBgColor = document.getElementById("btnBgColor");
+        btnBgColor.onclick = () => {
+            document.getElementById("demo").style.backgroundColor = "yellow";
+        }
+    </script> -->
+    <script>
+        $("#btnBgColor").click(() => {
+            $("#demo").css("background-color", "yellow");
+        });
+    </script>
+
+    <script>
+        $("#btnRed").hover(() => {
+            $("#btnRed").css("font-size", "20px");
+            
+        }, () => {
+            $("#btnRed").css("font-size", "13.3333px");
+        });
+    </script>
+
+    <button id="btnClickMe">Click Me!</button>
+    <script>
+        const btnClickMe = document.getElementById('btnClickMe');
+        btnClickMe.onclick = () => {
+            alert('You clicked me!');
+        }
+    </script>
+
+    <button id="btnShow">Show</button>
+    <script>
+        $("#btnShow").click(() => {
+            $("#demo").show();
+        });
+    </script>
+
+    <button id="btnHide">Hide</button>
+    <script>
+        $("#btnHide").click(() => {
+            $("#demo").hide();
+        });
+    </script>
+
+    <button id="btnToggle">Toggle</button>
+    <script>
+        $("#btnToggle").click(() => {
+            $("#demo").toggle();
+        });
+    </script>
+
+</body>
+</html>
