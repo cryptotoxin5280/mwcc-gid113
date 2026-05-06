@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submit Example</title>
+</head>
+<body>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <!-- /jQuery -->
+
+    <form id="frmEmailForm">
+        <div class="mb-3">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control"
+                id="email" placeholder="name@example.com">
+        </div>
+        <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <p id="output"></p>
+    <script>
+        $("#frmEmailForm").submit((event) => {
+            // Prevent the Form Submit from Reloading the Entire Page!
+            event.preventDefault();
+
+            let emailAddr = $("#email").val();
+            $("#output").text(emailAddr);
+        });
+    </script>
+</body>
+</html>

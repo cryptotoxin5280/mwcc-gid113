@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+    <div id="weather-container">
+        <h2>Forecast for Gardner, MA</h2>
+        <div id="forecast-output">Loading weather...</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            // Identify coordinates (lat, lon)
+            const lat = "42.5750";
+            const lon = "-71.9981";
+
+            fetch(`https://api.weather.gov/points/${lat},${lon}`)
+                .then(response => response.json())
+                .then(data => {
+                    $('#forecast-output').html(
+                        `<pre>${JSON.stringify(data, null, 2)}</pre>`
+                    );
+
+                    const forecastUrl = data.properties.forecast;
+                    return fetch(forecastUrl);
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const periods = data.properties.periods;
+                    $('#forecast-output').html(
+                        `<pre>${JSON.stringify(data, null, 2)}</pre>`
+                    );
+
+                    const today = periods[0];
+                    const tonight = periods[1];
+
+                    $('#forecast-output').html(`
+                        <p>Forecast: ${today.shortForecast}</p>
+                        <p>High: ${today.temperature}</p>
+                        <p>Low: ${tonight.temperature}</p>
+                    `);
+                })
+            .catch(() => {
+                $('#weather-container').html("<p>Error retrieving data.</p>");
+            });
+        });
+
+    </script>
+</body>
+</html>
